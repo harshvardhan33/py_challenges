@@ -1,0 +1,83 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
+Created on Wed May 16 14:51:35 2018
+
+@author: Forsk
+"""
+
+'''
+Using REST API with GET request with different python libraries:
+    1. urllib2
+    2. requests (external lib. need to be installed)
+'''
+
+cityName = raw_input("Enter the city name please: ")
+# REST API url
+url = "http://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid=e9185b28e9969fb7a300801eb026de9c"
+
+
+# Using urllib2 library
+import urllib2
+
+resp = urllib2.urlopen(url)   # GET request to REST API
+
+print resp.read()   # prints the server Response
+
+
+# Using requests library
+
+import requests
+
+resp = requests.get(url)   # GET request to REST API
+
+print resp.text    # prints the server Response
+
+
+
+
+
+"""
+Demo using POST APIs
+"""
+
+
+
+
+
+
+
+import requests
+
+data = {
+        "Phone_Number":"9414291932",
+        "Name":"James Bond", 
+        "College_Name":"Haward",
+        "Branch":"CSE"
+        }
+
+send_url = "http://13.127.155.43/api_v0.1/sending"
+send_req = requests.post(send_url, json = data)
+print send_req.text
+
+receive_url = "http://13.127.155.43/api_v0.1/receiving?Phone_Number=9414291932"
+receive_req = requests.get(receive_url)
+print receive_req.text
+
+#version 2
+
+import urllib.request
+import json
+
+send_url = "http://13.127.155.43/api_v0.1/sending"
+data = {
+        "Phone_Number" : "9887765324",
+        "Name" : "James Bond",
+        "College_Name" : "Harward",
+        "Branch" : "CSE"
+        }
+data = json.dumps(data)
+header = {"Content-Type" : "application/json"}
+request = urllib.request.Request(send_url,data,headers=header)
+send_response = urllib.request.urlopen(request)
+print (send_response.read())

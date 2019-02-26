@@ -1,0 +1,227 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb 12 17:11:00 2019
+
+@author: ajoyfern
+"""
+# This is the comment
+
+list1 = [1,2,4,0,2,10,2,1]
+
+while 2 in list1:
+    list1.remove(2)
+
+
+import math
+math.__version__
+
+import pandas
+pandas.__version__
+
+import math
+
+print (math.sqrt(15))
+
+
+import math as mt
+mt.sqrt(15)
+
+from math import sqrt
+sqrt(15)
+
+
+list1 = [1,3,4,5]
+
+tuple1 = (1,2,3,4)
+
+list1[0]  = 13
+tuple1[0] = 13
+
+x = (4,)
+
+[]
+()
+{}
+
+
+dict1 = {}
+
+dict1['name'] = 'Santosh'
+dict1['city'] = ['Jaipur','Hyd']
+dict1['major'] = 'CSE'
+
+str1 = 'Manipal2019'
+
+dict3 = {}
+
+for char in str1:
+    if char not in dict3:
+        dict3[char] = str1.count(char)
+
+
+dict4 = {}
+
+for char in str1:
+    if char not in dict4:
+        dict4[char] = 1
+    else:
+        dict4[char] = dict4[char] + 1
+
+
+
+
+
+
+(rt) <name> (p.....)
+{
+ return 
+ }
+
+
+def fname(a, b):
+    return a+b
+
+
+def f(x) : 
+    return x%3 == 0 or x%5 == 0
+
+filter(f, range(2,25))
+
+list1 = ['Ankita', 'Santosh', 'Shrestha', 'Khushi']
+
+for name in list1:
+    print len(name)
+
+def fcheck(x):
+    if 'i' in x:
+        return x
+
+
+filter(fcheck, list1)
+
+
+def flen(x):
+    return len(x)
+
+map(flen, list1)
+
+
+def add(x,y):
+    return x+y
+reduce(add, [1,2,3,4,5])
+
+fp = open("test.txt")
+
+print fp.read()
+fp.seek(0,0)
+
+print fp.readline()
+
+print fp.readlines()
+
+fp.close()
+
+fp = open("test.txt", 'w')
+
+fp.write("Manipal")
+fp.flush()
+
+
+import gspread
+
+
+
+
+
+
+
+
+[]
+()
+
+{}
+
+dict1 = {}
+
+dict1['name'] = 'Harsh'
+dict1['city'] = 'Jaipur'
+dict1['major'] = 'CSE'
+
+dict1.keys()
+dict1.values()
+dict1.items()
+
+for k,v in dict1.items():
+    print v,k
+
+str1 = "Harshwardhan Chaudhary"
+
+dict2 = {}
+
+
+for item in str1:
+    if item not in dict2:
+        dict2[item] = str1.count(item)
+
+
+for item in str1:
+    if item not in dict2:
+        dict2[item] = 1
+    else:
+        dict2[item] = dict2[item] + 1
+
+
+
+def flen(x):
+    
+    return len(x)
+
+
+flen("Harsh")
+
+filter
+map
+reduce
+
+--------------------
+
+def fcheck(x):
+    return x % 3 == 0
+
+filter(fcheck, [1,2,4,5,6,77,8,9])
+
+
+list1 = ['Harsh', 'Harshita', 'Jaipur', 'Kota', ""]
+
+def ff(x):
+    return len(x)
+
+filter(ff,list1)
+
+map(ff, list1)
+
+-------------------
+
+def fcube(x):
+    return x**3
+
+map(fcube, range(10))
+map(lambda x: x**3, range(10))
+
+
+---------
+def add1(x,y):
+    return x+y
+
+reduce(add1, [0,1,2,3,4])
+
+
+Hadoop
+map-reduce
+
+
+
+
+
+

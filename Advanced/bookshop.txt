@@ -1,0 +1,4 @@
+34587 LearningPython MarkLutz 4 40.95
+98762 ProgrammingPython MarkLutz 5 56.80
+77226 HeadFirstPython PaulBarry 3 32.95
+88112 Python3 BerndKlein 3 24.99

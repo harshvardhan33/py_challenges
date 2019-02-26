@@ -1,0 +1,5 @@
+In other words, each line is a set of fields, separated by colon characters. 
+The first field is the username, and the third field is the ID of the user. 
+Thus, on my system, the nobody user has ID -2, the root user has ID 0. 
+and the daemon user has ID 1.  
+You can ignore all but the first and third fields in the file.
