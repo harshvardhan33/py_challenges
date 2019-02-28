@@ -1,0 +1,395 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
+Created on Fri May 18 17:02:17 2018
+
+@author: Forsk
+"""
+
+
+import math
+
+math.sqrt(16)
+
+
+
+
+import math as mt
+mt.sqrt(16)
+
+
+
+from math import sqrt
+
+sqrt(16)
+
+from math import sqrt as st
+st(16)
+
+#-----------------------------------------------------
+# collections.Counter() 
+#A counter is a container that stores elements as dictionary keys, 
+#and their counts are stored 
+#as dictionary values.
+
+#Sample Code
+#-------------------------------------------------------
+
+from collections import Counter
+
+myList = [1,1,2,3,4,5,3,2,3,4,2,1,2,3]
+str1 = "Jaipur13231"
+
+cnt = Counter(myList)
+
+#output: Counter({2: 4, 3: 4, 1: 3, 4: 2, 5: 1})
+
+print Counter(myList).items()
+#output: [(1, 3), (2, 4), (3, 4), (4, 2), (5, 1)]
+
+print Counter(myList).keys()
+
+#output: [1, 2, 3, 4, 5]
+
+print Counter(myList).values()
+#output: [3, 4, 4, 2, 1]
+
+
+
+
+
+
+
+
+#--------------------------------------------
+# dict vs. defaultdict
+#Since Python 2.5 there is new defaultdict in 
+#the module collections. This works similarly to 
+#the the defaultdict method of dictionaries.
+
+#Usually, a Python dictionary throws a KeyError if you try to get an item with a key that is not currently in the dictionary. The defaultdict in contrast will simply create any items that you try to access (provided of course they do not exist yet).
+#--------------------------------------------
+
+
+# Let's assume we want to count how many of each letter are in the following sentence:
+
+s = 'Some letters appear several times in this text.'
+
+# We can do this in the standard way, we have learned this in past
+d = {}
+for key in s:
+    if key in d:
+        d[key] += 1
+    else:
+        d[key] = 1
+print d
+    
+
+
+
+"""output: {'a': 3, ' ': 7, 'e': 8, 'i': 3, 's': 4, 'm': 2, 
+'l': 2, 'o': 1, 'n': 1, 'p': 2, 'S': 1, 'r': 3,
+ 't': 6, 'v': 1, 'x': 1, 'h': 1, '.': 1}
+"""
+
+# OR we can use the new defaultdict:
+from collections import defaultdict
+dd = defaultdict(float)
+for key in s:
+    dd[key] += 1
+
+print dd
+
+
+
+
+"""output: 
+defaultdict(<type 'int'>, {'a': 3, ' ': 7, 'e': 8, 'i': 
+3, 's': 4, 'm': 2,
+'l': 2, 'o': 1, 'n': 1, 'p': 2, 'S': 1, 'r': 3, 't': 6, 'v': 
+1, 'x': 1, 'h': 1, '.': 1})
+"""
+
+
+
+
+
+
+
+
+
+
+
+# -----------------------------------------
+# collections.OrderedDict
+#------------------------------------------
+"""
+An OrderedDict is a dictionary that remembers 
+the order of the keys that were inserted first. 
+If a new entry overwrites an existing entry, 
+the original insertion position is left 
+unchanged.
+"""
+# Example Code
+
+from collections import OrderedDict
+
+#Using a ordinary dictionary that we have learnt in past
+# No control over storage/printing order
+
+ordinary_dictionary = {}
+ordinary_dictionary['a'] = 1
+ordinary_dictionary['b'] = 2
+ordinary_dictionary['c'] = 3
+ordinary_dictionary['d'] = 4
+ordinary_dictionary['e'] = 5
+
+print ordinary_dictionary
+#output: {'a': 1, 'c': 3, 'b': 2, 'e': 5, 'd': 4}
+
+#Now using OrderedDict()
+
+ordered_dictionary = OrderedDict()
+ordered_dictionary['a'] = 1
+ordered_dictionary['b'] = 2
+ordered_dictionary['c'] = 3
+ordered_dictionary['d'] = 4
+ordered_dictionary['e'] = 5
+
+print ordered_dictionary
+"""output: OrderedDict([('a', 1), ('b', 2), ('c', 3), ('d', 4), 
+('e', 5)])
+"""    
+
+
+
+
+
+# -------------------------------------------
+# NamedTuple: collections.namedtuple()
+#-------------------------------------------
+"""
+Basically, namedtuples are easy to create, 
+lightweight object types. 
+They turn tuples into convenient containers 
+for simple tasks. 
+With namedtuples, you donﾒt have to use 
+integer indices for accessing members of a 
+tuple.
+The Point name in your globals is just a reference to 
+the generated class, the class itself needs to have a name. 
+The name cannot be taken from the variable to which the object 
+is assigned, because the class is generated first and only then 
+assigned in a separate step (after the namedtuple() call returns).
+"""
+# Example Code 01
+
+from collections import namedtuple
+Point = namedtuple('ForskLabs','x,y')
+pt1 = Point(1,2)
+pt2 = Point(3,4)
+dot_product = ( pt1.x * pt2.x ) +( pt1.y * pt2.y )
+print dot_product
+#output: 11
+
+#Example Code 02
+
+from collections import namedtuple
+Car = namedtuple('Car','Price, Mileage, Colour, Class')
+xyz = Car(Price = 100000, Mileage = 30, Colour = 'Cyan', Class = 'Y')
+
+print xyz
+#output: Car(Price=100000, Mileage=30, Colour='Cyan', Class='Y')
+print xyz.Class
+#output: Y
+
+
+
+
+#-----------------------------------------------------
+# ZIP: zip([iterable, ...]) 
+#-----------------------------------------------------
+"""
+This function returns a list of tuples. The th 
+tuple contains the th element from each of 
+the argument sequences or iterables.
+
+If the argument sequences are of unequal 
+lengths, then the returned list is truncated to 
+the length of the shortest argument 
+sequence.
+"""
+
+# Sample Code
+
+print zip([1,2,3,4,5,6],'HackerRank')
+#Output: [(1, 'H'), (2, 'a'), (3, 'c'), (4, 'k'), (5, 'e'), (6, 'r')]
+ 
+print zip([1,2,3,4,5,6], [0,9,8,7,6,5,4,3,2,1])
+#output: [(1, 0), (2, 9), (3, 8), (4, 7), (5, 6), (6, 5)]
+
+A = [1,2,3]
+B = [6,5,4]
+C = [7,8,9]
+
+print zip(A, B, C)
+#output: [(1, 6, 7), (2, 5, 8), (3, 4, 9)]
+
+
+
+
+
+
+all(['a'<'b','b'<'c', 'c' > 'd'])
+
+all(['a'<'b','c'<'b'])
+
+
+
+any([1>0,1==0,1<0])
+
+any([1<0,2<1,3<2])
+
+
+#-----------------------------------------
+# More about Functions
+#----------------------------------------
+"""
+Functions can return more than one value at a 
+time!
+"""
+def sumprod(a,b): 
+    return a+b, a*b
+
+
+
+s, p = sumprod(2,3)
+
+"""Well, technically - Python is returning only 
+one object but that one object is a tuple - in
+the above case - (2,3)
+"""
+print s
+print p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#-----------------------------------------
+# More about Functions
+#----------------------------------------
+"""
+Functions with Arbitrary Number of 
+Arguments
+"""
+
+def sumitall(*values):
+    total = 0
+    for i in values:
+        total += i
+    return total
+
+sumitall(2,3,4,5)
+#output: 14
+
+sumitall(2,3)
+#output: 9
+
+
+
+
+
+# Mixture of Arguments
+sumitall()
+#output: 0
+
+#-----------------------------------------
+# More about Functions
+#----------------------------------------
+
+def sumitall2(val1, *values):
+    total = val1
+    for i in values:
+        total += val1
+    return total
+
+sumitall2(2)
+#output: 2
+sumitall2(2,3,4)
+#output: 6
+sumitall2() 
+# WILL GIVE AN ERROR.
+
+#-----------------------------------------
+# More about Functions
+#----------------------------------------
+"""
+Functions are Objects
+Like lists, dictionaries, ints, floats, strings etc 
+you can pass functions to other functions
+since they are just objects.
+"""
+def myfun(message):
+    print message
+
+def do(f, arg):
+    f(arg)
+
+do(myfun, "Something")
+#output: Something
+
+x = myfun
+x("Hello!")
+#output: Hello!
+
+number = input()
+l = input
+
+
+
+
+# Example 1
+
+list1 = []
+while True:
+    str1 = raw_input()
+    if not str1:
+        break
+    tup1 = str1.split(',')
+    list1.append((tup1[0], int(tup1[1]), int(tup1[2])))
+
+#Example 2
+    
+od = OrderedDict()
+
+while True:
+    
+    str1 = raw_input()
+    if not str1:
+        break
+    print str1
+    
+    list1 = str1.split(' ')
+    
+    value = list1[-1]
+    key = ' '.join(list1[0:-1])
+    if key in od:
+        od[key] = od[key] + int(value)
+    else:
+        od[key] = int(value)
+    
+    
+
+for k,v in od.items():
+    print k, v
