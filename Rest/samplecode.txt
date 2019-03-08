@@ -18,6 +18,7 @@ url = "http://api.openweathermap.org/data/2.5/weather?q="+cityName+"&appid=e9185
 
 
 # Using urllib2 library
+
 import urllib2
 
 resp = urllib2.urlopen(url)   # GET request to REST API
